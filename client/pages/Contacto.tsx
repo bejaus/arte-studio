@@ -92,13 +92,13 @@ export default function Contacto() {
   const { openCart, itemCount } = useCart();
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -114,7 +114,8 @@ export default function Contacto() {
     }, 2000);
   };
 
-  const isFormValid = formData.name && formData.email && formData.inquiryType && formData.message;
+  const isFormValid =
+    formData.name && formData.email && formData.inquiryType && formData.message;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-stone-50 via-amber-50 to-stone-100">
@@ -180,8 +181,9 @@ export default function Contacto() {
             Hablemos de Arte
           </h1>
           <p className="text-xl text-stone-600 max-w-2xl mx-auto">
-            ¿Tienes alguna pregunta sobre mis obras? ¿Interesado en un encargo personalizado? 
-            Estoy aquí para ayudarte a encontrar la pieza perfecta para tu espacio.
+            ¿Tienes alguna pregunta sobre mis obras? ¿Interesado en un encargo
+            personalizado? Estoy aquí para ayudarte a encontrar la pieza
+            perfecta para tu espacio.
           </p>
         </div>
       </section>
@@ -197,8 +199,8 @@ export default function Contacto() {
                   Envíame un mensaje
                 </h2>
                 <p className="text-stone-600">
-                  Completa el formulario y te responderé lo antes posible. 
-                  Todas las consultas son bienvenidas.
+                  Completa el formulario y te responderé lo antes posible. Todas
+                  las consultas son bienvenidas.
                 </p>
               </div>
 
@@ -212,7 +214,8 @@ export default function Contacto() {
                       ¡Mensaje enviado!
                     </h3>
                     <p className="text-green-700 mb-4">
-                      Gracias por tu interés. Te responderé en las próximas 24 horas.
+                      Gracias por tu interés. Te responderé en las próximas 24
+                      horas.
                     </p>
                     <Button
                       onClick={() => setIsSubmitted(false)}
@@ -233,7 +236,9 @@ export default function Contacto() {
                           <Input
                             id="name"
                             value={formData.name}
-                            onChange={(e) => handleInputChange("name", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("name", e.target.value)
+                            }
                             placeholder="Tu nombre"
                             required
                           />
@@ -244,7 +249,9 @@ export default function Contacto() {
                             id="email"
                             type="email"
                             value={formData.email}
-                            onChange={(e) => handleInputChange("email", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("email", e.target.value)
+                            }
                             placeholder="tu@email.com"
                             required
                           />
@@ -257,15 +264,21 @@ export default function Contacto() {
                           <Input
                             id="phone"
                             value={formData.phone}
-                            onChange={(e) => handleInputChange("phone", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("phone", e.target.value)
+                            }
                             placeholder="+34 123 456 789"
                           />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="inquiryType">Tipo de consulta *</Label>
+                          <Label htmlFor="inquiryType">
+                            Tipo de consulta *
+                          </Label>
                           <Select
                             value={formData.inquiryType}
-                            onValueChange={(value) => handleInputChange("inquiryType", value)}
+                            onValueChange={(value) =>
+                              handleInputChange("inquiryType", value)
+                            }
                           >
                             <SelectTrigger>
                               <SelectValue placeholder="Selecciona el tipo" />
@@ -286,7 +299,9 @@ export default function Contacto() {
                         <Input
                           id="subject"
                           value={formData.subject}
-                          onChange={(e) => handleInputChange("subject", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("subject", e.target.value)
+                          }
                           placeholder="Breve resumen de tu consulta"
                         />
                       </div>
@@ -296,7 +311,9 @@ export default function Contacto() {
                         <Textarea
                           id="message"
                           value={formData.message}
-                          onChange={(e) => handleInputChange("message", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("message", e.target.value)
+                          }
                           placeholder="Cuéntame en qué puedo ayudarte..."
                           rows={5}
                           required
@@ -355,8 +372,16 @@ export default function Contacto() {
                             >
                               <a
                                 href={method.href}
-                                target={method.href.startsWith("http") ? "_blank" : undefined}
-                                rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                                target={
+                                  method.href.startsWith("http")
+                                    ? "_blank"
+                                    : undefined
+                                }
+                                rel={
+                                  method.href.startsWith("http")
+                                    ? "noopener noreferrer"
+                                    : undefined
+                                }
                               >
                                 {method.action}
                               </a>
@@ -379,10 +404,14 @@ export default function Contacto() {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
-                    <h4 className="font-semibold text-stone-800 mb-2">Dirección</h4>
+                    <h4 className="font-semibold text-stone-800 mb-2">
+                      Dirección
+                    </h4>
                     <p className="text-stone-600">
-                      Calle del Arte, 15<br />
-                      Centro Histórico<br />
+                      Calle del Arte, 15
+                      <br />
+                      Centro Histórico
+                      <br />
                       28001 Madrid, España
                     </p>
                   </div>
@@ -394,9 +423,14 @@ export default function Contacto() {
                     </h4>
                     <div className="space-y-2">
                       {studioHours.map((schedule, index) => (
-                        <div key={index} className="flex justify-between text-sm">
+                        <div
+                          key={index}
+                          className="flex justify-between text-sm"
+                        >
                           <span className="text-stone-600">{schedule.day}</span>
-                          <span className="font-medium text-stone-800">{schedule.hours}</span>
+                          <span className="font-medium text-stone-800">
+                            {schedule.hours}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -404,8 +438,8 @@ export default function Contacto() {
 
                   <div className="pt-4 border-t border-stone-200">
                     <p className="text-sm text-stone-600 mb-4">
-                      ¿Te gustaría visitar mi estudio? Agenda una cita para conocer el proceso 
-                      creativo y ver las obras en persona.
+                      ¿Te gustaría visitar mi estudio? Agenda una cita para
+                      conocer el proceso creativo y ver las obras en persona.
                     </p>
                     <Button
                       className="w-full bg-amber-600 hover:bg-amber-700"
@@ -423,7 +457,9 @@ export default function Contacto() {
               {/* Quick Actions */}
               <Card className="bg-gradient-to-r from-amber-600 to-amber-700 text-white">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3">¿Necesitas ayuda rápida?</h3>
+                  <h3 className="text-xl font-bold mb-3">
+                    ¿Necesitas ayuda rápida?
+                  </h3>
                   <p className="text-amber-100 mb-4">
                     Respondo mensajes de WhatsApp durante el horario de estudio.
                   </p>
@@ -477,8 +513,9 @@ export default function Contacto() {
                       ¿Realizas encargos personalizados?
                     </h3>
                     <p className="text-stone-600 text-sm">
-                      Sí, acepto encargos personalizados. El proceso incluye una consulta inicial, 
-                      bocetos y seguimiento durante la creación.
+                      Sí, acepto encargos personalizados. El proceso incluye una
+                      consulta inicial, bocetos y seguimiento durante la
+                      creación.
                     </p>
                   </div>
                 </div>
@@ -494,8 +531,9 @@ export default function Contacto() {
                       ¿Puedo ver las obras antes de comprar?
                     </h3>
                     <p className="text-stone-600 text-sm">
-                      Por supuesto. Puedes visitar mi estudio con cita previa o solicitar 
-                      fotos adicionales de cualquier obra que te interese.
+                      Por supuesto. Puedes visitar mi estudio con cita previa o
+                      solicitar fotos adicionales de cualquier obra que te
+                      interese.
                     </p>
                   </div>
                 </div>
@@ -511,8 +549,8 @@ export default function Contacto() {
                       ¿Realizan envíos a toda España?
                     </h3>
                     <p className="text-stone-600 text-sm">
-                      Sí, enviamos a toda España con embalaje profesional y seguro. 
-                      Envío gratuito en pedidos superiores a €500.
+                      Sí, enviamos a toda España con embalaje profesional y
+                      seguro. Envío gratuito en pedidos superiores a €500.
                     </p>
                   </div>
                 </div>
@@ -528,8 +566,9 @@ export default function Contacto() {
                       ¿Cuánto tiempo toma un encargo?
                     </h3>
                     <p className="text-stone-600 text-sm">
-                      Depende de la complejidad, pero generalmente entre 2-6 semanas. 
-                      Te mantendré informado del progreso durante todo el proceso.
+                      Depende de la complejidad, pero generalmente entre 2-6
+                      semanas. Te mantendré informado del progreso durante todo
+                      el proceso.
                     </p>
                   </div>
                 </div>
