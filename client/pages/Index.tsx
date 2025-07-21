@@ -289,9 +289,12 @@ export default function Index() {
               size="lg"
               variant="outline"
               className="border-amber-600 text-amber-600 hover:bg-amber-50"
+              asChild
             >
-              Ver Toda la Galería
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Link to="/galeria">
+                Ver Toda la Galería
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
           </div>
         </div>
