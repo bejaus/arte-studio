@@ -14,7 +14,7 @@ const featuredArtworks = [
     image: "/api/placeholder/400/500",
     category: "Pintura",
     rating: 5,
-    isNew: true
+    isNew: true,
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const featuredArtworks = [
     image: "/api/placeholder/400/500",
     category: "Retrato",
     rating: 5,
-    isNew: false
+    isNew: false,
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const featuredArtworks = [
     image: "/api/placeholder/400/500",
     category: "Urbano",
     rating: 4,
-    isNew: true
+    isNew: true,
   },
   {
     id: 4,
@@ -41,18 +41,16 @@ const featuredArtworks = [
     image: "/api/placeholder/400/500",
     category: "Clásico",
     rating: 5,
-    isNew: false
-  }
+    isNew: false,
+  },
 ];
 
 export default function Index() {
   const [favorites, setFavorites] = useState<number[]>([]);
 
   const toggleFavorite = (id: number) => {
-    setFavorites(prev => 
-      prev.includes(id) 
-        ? prev.filter(fav => fav !== id)
-        : [...prev, id]
+    setFavorites((prev) =>
+      prev.includes(id) ? prev.filter((fav) => fav !== id) : [...prev, id],
     );
   };
 
@@ -67,13 +65,22 @@ export default function Index() {
                 Arte<span className="text-amber-600">Studio</span>
               </Link>
               <div className="hidden md:flex space-x-6">
-                <Link to="/galeria" className="text-stone-600 hover:text-stone-800 transition-colors">
+                <Link
+                  to="/galeria"
+                  className="text-stone-600 hover:text-stone-800 transition-colors"
+                >
                   Galería
                 </Link>
-                <Link to="/sobre-mi" className="text-stone-600 hover:text-stone-800 transition-colors">
+                <Link
+                  to="/sobre-mi"
+                  className="text-stone-600 hover:text-stone-800 transition-colors"
+                >
                   Sobre Mí
                 </Link>
-                <Link to="/contacto" className="text-stone-600 hover:text-stone-800 transition-colors">
+                <Link
+                  to="/contacto"
+                  className="text-stone-600 hover:text-stone-800 transition-colors"
+                >
                   Contacto
                 </Link>
               </div>
@@ -98,27 +105,36 @@ export default function Index() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge variant="secondary" className="bg-amber-100 text-amber-800 border-amber-200">
+                <Badge
+                  variant="secondary"
+                  className="bg-amber-100 text-amber-800 border-amber-200"
+                >
                   ✨ Nuevas obras disponibles
                 </Badge>
                 <h1 className="text-4xl lg:text-6xl font-bold text-stone-800 leading-tight">
                   Arte que
-                  <span className="block text-amber-600">
-                    Transforma
-                  </span>
+                  <span className="block text-amber-600">Transforma</span>
                   Espacios
                 </h1>
                 <p className="text-xl text-stone-600 leading-relaxed">
-                  Descubre una colección única de obras de arte originales, 
-                  cada una creada con pasión y dedicación para dar vida a tus espacios.
+                  Descubre una colección única de obras de arte originales, cada
+                  una creada con pasión y dedicación para dar vida a tus
+                  espacios.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white">
+                <Button
+                  size="lg"
+                  className="bg-amber-600 hover:bg-amber-700 text-white"
+                >
                   Explorar Galería
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg" className="border-stone-300 text-stone-700">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-stone-300 text-stone-700"
+                >
                   Conoce al Artista
                 </Button>
               </div>
@@ -128,12 +144,14 @@ export default function Index() {
                   <span>Obras disponibles</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span className="text-2xl font-bold text-stone-800">100%</span>
+                  <span className="text-2xl font-bold text-stone-800">
+                    100%
+                  </span>
                   <span>Originales</span>
                 </div>
               </div>
             </div>
-            
+
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
@@ -159,13 +177,17 @@ export default function Index() {
               Obras Destacadas
             </h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-              Una selección cuidadosa de las piezas más populares y recientes de la colección
+              Una selección cuidadosa de las piezas más populares y recientes de
+              la colección
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredArtworks.map((artwork) => (
-              <Card key={artwork.id} className="group cursor-pointer overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <Card
+                key={artwork.id}
+                className="group cursor-pointer overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              >
                 <div className="relative">
                   <div className="aspect-[3/4] bg-gradient-to-br from-stone-200 to-stone-300"></div>
                   {artwork.isNew && (
@@ -177,13 +199,15 @@ export default function Index() {
                     variant="ghost"
                     size="sm"
                     className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-sm ${
-                      favorites.includes(artwork.id) 
-                        ? 'bg-red-100 text-red-600' 
-                        : 'bg-white/80 text-stone-600 hover:text-red-600'
+                      favorites.includes(artwork.id)
+                        ? "bg-red-100 text-red-600"
+                        : "bg-white/80 text-stone-600 hover:text-red-600"
                     }`}
                     onClick={() => toggleFavorite(artwork.id)}
                   >
-                    <Heart className={`h-4 w-4 ${favorites.includes(artwork.id) ? 'fill-current' : ''}`} />
+                    <Heart
+                      className={`h-4 w-4 ${favorites.includes(artwork.id) ? "fill-current" : ""}`}
+                    />
                   </Button>
                 </div>
                 <CardContent className="p-4">
@@ -194,7 +218,10 @@ export default function Index() {
                       </Badge>
                       <div className="flex items-center space-x-1">
                         {[...Array(artwork.rating)].map((_, i) => (
-                          <Star key={i} className="h-3 w-3 fill-amber-400 text-amber-400" />
+                          <Star
+                            key={i}
+                            className="h-3 w-3 fill-amber-400 text-amber-400"
+                          />
                         ))}
                       </div>
                     </div>
@@ -205,7 +232,11 @@ export default function Index() {
                       <span className="text-lg font-bold text-stone-800">
                         €{artwork.price.toLocaleString()}
                       </span>
-                      <Button size="sm" variant="ghost" className="text-amber-600 hover:bg-amber-50">
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="text-amber-600 hover:bg-amber-50"
+                      >
                         Ver Detalles
                       </Button>
                     </div>
@@ -216,7 +247,11 @@ export default function Index() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" variant="outline" className="border-amber-600 text-amber-600 hover:bg-amber-50">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-amber-600 text-amber-600 hover:bg-amber-50"
+            >
               Ver Toda la Galería
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -233,9 +268,10 @@ export default function Index() {
                 Sobre el Artista
               </h2>
               <p className="text-lg text-stone-300 leading-relaxed">
-                Con más de 15 años de experiencia en el mundo del arte, cada obra 
-                refleja una pasión profunda por la creatividad y la expresión única. 
-                Especializado en técnicas mixtas y estilos contemporáneos.
+                Con más de 15 años de experiencia en el mundo del arte, cada
+                obra refleja una pasión profunda por la creatividad y la
+                expresión única. Especializado en técnicas mixtas y estilos
+                contemporáneos.
               </p>
               <div className="grid grid-cols-2 gap-6 text-center">
                 <div>
@@ -273,9 +309,24 @@ export default function Index() {
             <div className="space-y-4">
               <h4 className="font-semibold text-stone-800">Navegación</h4>
               <div className="space-y-2">
-                <Link to="/galeria" className="block text-stone-600 hover:text-stone-800">Galería</Link>
-                <Link to="/sobre-mi" className="block text-stone-600 hover:text-stone-800">Sobre Mí</Link>
-                <Link to="/contacto" className="block text-stone-600 hover:text-stone-800">Contacto</Link>
+                <Link
+                  to="/galeria"
+                  className="block text-stone-600 hover:text-stone-800"
+                >
+                  Galería
+                </Link>
+                <Link
+                  to="/sobre-mi"
+                  className="block text-stone-600 hover:text-stone-800"
+                >
+                  Sobre Mí
+                </Link>
+                <Link
+                  to="/contacto"
+                  className="block text-stone-600 hover:text-stone-800"
+                >
+                  Contacto
+                </Link>
               </div>
             </div>
             <div className="space-y-4">

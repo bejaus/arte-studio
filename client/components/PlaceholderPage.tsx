@@ -8,7 +8,10 @@ interface PlaceholderPageProps {
   description: string;
 }
 
-export default function PlaceholderPage({ title, description }: PlaceholderPageProps) {
+export default function PlaceholderPage({
+  title,
+  description,
+}: PlaceholderPageProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-stone-50 via-amber-50 to-stone-100">
       {/* Navigation */}
@@ -20,13 +23,22 @@ export default function PlaceholderPage({ title, description }: PlaceholderPageP
                 Arte<span className="text-amber-600">Studio</span>
               </Link>
               <div className="hidden md:flex space-x-6">
-                <Link to="/galeria" className="text-stone-600 hover:text-stone-800 transition-colors">
+                <Link
+                  to="/galeria"
+                  className="text-stone-600 hover:text-stone-800 transition-colors"
+                >
                   Galería
                 </Link>
-                <Link to="/sobre-mi" className="text-stone-600 hover:text-stone-800 transition-colors">
+                <Link
+                  to="/sobre-mi"
+                  className="text-stone-600 hover:text-stone-800 transition-colors"
+                >
                   Sobre Mí
                 </Link>
-                <Link to="/contacto" className="text-stone-600 hover:text-stone-800 transition-colors">
+                <Link
+                  to="/contacto"
+                  className="text-stone-600 hover:text-stone-800 transition-colors"
+                >
                   Contacto
                 </Link>
               </div>
@@ -45,20 +57,18 @@ export default function PlaceholderPage({ title, description }: PlaceholderPageP
                   <Palette className="h-12 w-12 text-amber-600" />
                 </div>
               </div>
-              
+
               <h1 className="text-3xl font-bold text-stone-800 mb-4">
                 {title}
               </h1>
-              
-              <p className="text-lg text-stone-600 mb-8">
-                {description}
-              </p>
-              
+
+              <p className="text-lg text-stone-600 mb-8">{description}</p>
+
               <p className="text-stone-500 mb-8">
-                Esta página está en construcción. Pronto estará disponible con contenido completo 
-                para mejorar tu experiencia en ArteStudio.
+                Esta página está en construcción. Pronto estará disponible con
+                contenido completo para mejorar tu experiencia en ArteStudio.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild className="bg-amber-600 hover:bg-amber-700">
                   <Link to="/">
@@ -66,7 +76,10 @@ export default function PlaceholderPage({ title, description }: PlaceholderPageP
                     Volver al Inicio
                   </Link>
                 </Button>
-                <Button variant="outline" className="border-stone-300 text-stone-700">
+                <Button
+                  variant="outline"
+                  className="border-stone-300 text-stone-700"
+                >
                   Contactar para Más Info
                 </Button>
               </div>
@@ -90,9 +103,24 @@ export default function PlaceholderPage({ title, description }: PlaceholderPageP
             <div className="space-y-4">
               <h4 className="font-semibold text-stone-800">Navegación</h4>
               <div className="space-y-2">
-                <Link to="/galeria" className="block text-stone-600 hover:text-stone-800">Galería</Link>
-                <Link to="/sobre-mi" className="block text-stone-600 hover:text-stone-800">Sobre Mí</Link>
-                <Link to="/contacto" className="block text-stone-600 hover:text-stone-800">Contacto</Link>
+                <Link
+                  to="/galeria"
+                  className="block text-stone-600 hover:text-stone-800"
+                >
+                  Galería
+                </Link>
+                <Link
+                  to="/sobre-mi"
+                  className="block text-stone-600 hover:text-stone-800"
+                >
+                  Sobre Mí
+                </Link>
+                <Link
+                  to="/contacto"
+                  className="block text-stone-600 hover:text-stone-800"
+                >
+                  Contacto
+                </Link>
               </div>
             </div>
             <div className="space-y-4">
