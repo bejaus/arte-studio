@@ -155,8 +155,11 @@ export default function Index() {
                   variant="outline"
                   size="lg"
                   className="border-stone-300 text-stone-700"
+                  asChild
                 >
-                  Conoce al Artista
+                  <Link to="/sobre-mi">
+                    Conoce al Artista
+                  </Link>
                 </Button>
               </div>
               <div className="flex items-center space-x-8 text-sm text-stone-600">
