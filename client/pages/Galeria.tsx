@@ -183,7 +183,15 @@ const galleryArtworks = [
   },
 ];
 
-const categories = ["Todos", "Pintura", "Retrato", "Urbano", "Clásico", "Abstracto", "Paisaje"];
+const categories = [
+  "Todos",
+  "Pintura",
+  "Retrato",
+  "Urbano",
+  "Clásico",
+  "Abstracto",
+  "Paisaje",
+];
 const techniques = ["Todas", "Óleo", "Acrílico", "Mixta"];
 const sortOptions = [
   { value: "newest", label: "Más Recientes" },
@@ -200,7 +208,7 @@ export default function Galeria() {
   const [selectedTechnique, setSelectedTechnique] = useState("Todas");
   const [sortBy, setSortBy] = useState("newest");
   const [showAvailableOnly, setShowAvailableOnly] = useState(false);
-  
+
   const { openCart, itemCount, addItem } = useCart();
 
   const toggleFavorite = (id: number) => {
@@ -212,13 +220,22 @@ export default function Galeria() {
   // Filter and sort artworks
   const filteredArtworks = useMemo(() => {
     let filtered = galleryArtworks.filter((artwork) => {
-      const matchesSearch = artwork.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           artwork.category.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory = selectedCategory === "Todos" || artwork.category === selectedCategory;
-      const matchesTechnique = selectedTechnique === "Todas" || artwork.technique === selectedTechnique;
+      const matchesSearch =
+        artwork.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        artwork.category.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory =
+        selectedCategory === "Todos" || artwork.category === selectedCategory;
+      const matchesTechnique =
+        selectedTechnique === "Todas" ||
+        artwork.technique === selectedTechnique;
       const matchesAvailability = !showAvailableOnly || artwork.isAvailable;
 
-      return matchesSearch && matchesCategory && matchesTechnique && matchesAvailability;
+      return (
+        matchesSearch &&
+        matchesCategory &&
+        matchesTechnique &&
+        matchesAvailability
+      );
     });
 
     // Sort artworks
@@ -240,7 +257,13 @@ export default function Galeria() {
     });
 
     return filtered;
-  }, [searchTerm, selectedCategory, selectedTechnique, sortBy, showAvailableOnly]);
+  }, [
+    searchTerm,
+    selectedCategory,
+    selectedTechnique,
+    sortBy,
+    showAvailableOnly,
+  ]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-stone-50 via-amber-50 to-stone-100">
@@ -253,10 +276,7 @@ export default function Galeria() {
                 Arte<span className="text-amber-600">Studio</span>
               </Link>
               <div className="hidden md:flex space-x-6">
-                <Link
-                  to="/galeria"
-                  className="text-amber-600 font-medium"
-                >
+                <Link to="/galeria" className="text-amber-600 font-medium">
                   Galería
                 </Link>
                 <Link
@@ -278,8 +298,8 @@ export default function Galeria() {
                 <Heart className="h-4 w-4 mr-2" />
                 Favoritos
               </Button>
-              <Button 
-                size="sm" 
+              <Button
+                size="sm"
                 className="bg-amber-600 hover:bg-amber-700 relative"
                 onClick={openCart}
               >
@@ -303,8 +323,8 @@ export default function Galeria() {
             Galería de Arte
           </h1>
           <p className="text-xl text-stone-600 max-w-2xl mx-auto">
-            Explora nuestra colección completa de obras originales. Encuentra la pieza perfecta 
-            que transformará tu espacio.
+            Explora nuestra colección completa de obras originales. Encuentra la
+            pieza perfecta que transformará tu espacio.
           </p>
         </div>
       </section>
@@ -328,10 +348,15 @@ export default function Galeria() {
             <div className="flex flex-wrap gap-4 items-center">
               <div className="flex items-center space-x-2">
                 <SlidersHorizontal className="h-4 w-4 text-stone-600" />
-                <span className="text-sm font-medium text-stone-600">Filtros:</span>
+                <span className="text-sm font-medium text-stone-600">
+                  Filtros:
+                </span>
               </div>
-              
-              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+
+              <Select
+                value={selectedCategory}
+                onValueChange={setSelectedCategory}
+              >
                 <SelectTrigger className="w-40">
                   <SelectValue placeholder="Categoría" />
                 </SelectTrigger>
@@ -344,7 +369,10 @@ export default function Galeria() {
                 </SelectContent>
               </Select>
 
-              <Select value={selectedTechnique} onValueChange={setSelectedTechnique}>
+              <Select
+                value={selectedTechnique}
+                onValueChange={setSelectedTechnique}
+              >
                 <SelectTrigger className="w-32">
                   <SelectValue placeholder="Técnica" />
                 </SelectTrigger>
@@ -374,7 +402,9 @@ export default function Galeria() {
                 variant={showAvailableOnly ? "default" : "outline"}
                 size="sm"
                 onClick={() => setShowAvailableOnly(!showAvailableOnly)}
-                className={showAvailableOnly ? "bg-amber-600 hover:bg-amber-700" : ""}
+                className={
+                  showAvailableOnly ? "bg-amber-600 hover:bg-amber-700" : ""
+                }
               >
                 Solo Disponibles
               </Button>
@@ -387,10 +417,18 @@ export default function Galeria() {
       <section className="py-4 bg-white/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-stone-600">
-            Mostrando <span className="font-medium text-stone-800">{filteredArtworks.length}</span> 
-            {filteredArtworks.length === 1 ? ' obra' : ' obras'}
+            Mostrando{" "}
+            <span className="font-medium text-stone-800">
+              {filteredArtworks.length}
+            </span>
+            {filteredArtworks.length === 1 ? " obra" : " obras"}
             {searchTerm && (
-              <span> para "<span className="font-medium text-stone-800">{searchTerm}</span>"</span>
+              <span>
+                {" "}
+                para "
+                <span className="font-medium text-stone-800">{searchTerm}</span>
+                "
+              </span>
             )}
           </p>
         </div>
@@ -410,7 +448,7 @@ export default function Galeria() {
               <p className="text-stone-600 mb-4">
                 Intenta ajustar los filtros o términos de búsqueda
               </p>
-              <Button 
+              <Button
                 onClick={() => {
                   setSearchTerm("");
                   setSelectedCategory("Todos");
@@ -425,24 +463,25 @@ export default function Galeria() {
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredArtworks.map((artwork) => (
-                <Card 
-                  key={artwork.id} 
+                <Card
+                  key={artwork.id}
                   className={`group cursor-pointer overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 ${
-                    !artwork.isAvailable ? 'opacity-75' : ''
+                    !artwork.isAvailable ? "opacity-75" : ""
                   }`}
                 >
                   <div className="relative">
                     <div className="aspect-[3/4] bg-gradient-to-br from-stone-200 to-stone-300"></div>
-                    
+
                     {/* Badges */}
                     <div className="absolute top-3 left-3 flex flex-col gap-2">
                       {artwork.isNew && (
-                        <Badge className="bg-amber-600 text-white">
-                          Nuevo
-                        </Badge>
+                        <Badge className="bg-amber-600 text-white">Nuevo</Badge>
                       )}
                       {!artwork.isAvailable && (
-                        <Badge variant="secondary" className="bg-red-100 text-red-700">
+                        <Badge
+                          variant="secondary"
+                          className="bg-red-100 text-red-700"
+                        >
                           Vendido
                         </Badge>
                       )}
@@ -489,7 +528,9 @@ export default function Galeria() {
 
                       {/* Details */}
                       <div className="text-sm text-stone-600 space-y-1">
-                        <p>{artwork.technique} • {artwork.size}</p>
+                        <p>
+                          {artwork.technique} • {artwork.size}
+                        </p>
                         <p>{artwork.year}</p>
                       </div>
 
@@ -510,13 +551,15 @@ export default function Galeria() {
                             <Button
                               size="sm"
                               className="bg-amber-600 hover:bg-amber-700 text-white p-2"
-                              onClick={() => addItem({
-                                id: artwork.id,
-                                title: artwork.title,
-                                price: artwork.price,
-                                image: artwork.image,
-                                category: artwork.category
-                              })}
+                              onClick={() =>
+                                addItem({
+                                  id: artwork.id,
+                                  title: artwork.title,
+                                  price: artwork.price,
+                                  image: artwork.image,
+                                  category: artwork.category,
+                                })
+                              }
                             >
                               <ShoppingCart className="h-4 w-4" />
                             </Button>
