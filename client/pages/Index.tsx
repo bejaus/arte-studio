@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ShoppingBag, Heart, Star, ArrowRight } from "lucide-react";
+import { ShoppingBag, Heart, Star, ArrowRight, ShoppingCart } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import CartSidebar from "@/components/CartSidebar";
 
 // Mock artwork data
 const featuredArtworks = [
@@ -47,6 +49,7 @@ const featuredArtworks = [
 
 export default function Index() {
   const [favorites, setFavorites] = useState<number[]>([]);
+  const { openCart, itemCount, addItem } = useCart();
 
   const toggleFavorite = (id: number) => {
     setFavorites((prev) =>
@@ -90,9 +93,18 @@ export default function Index() {
                 <Heart className="h-4 w-4 mr-2" />
                 Favoritos
               </Button>
-              <Button size="sm" className="bg-amber-600 hover:bg-amber-700">
+              <Button
+                size="sm"
+                className="bg-amber-600 hover:bg-amber-700 relative"
+                onClick={openCart}
+              >
                 <ShoppingBag className="h-4 w-4 mr-2" />
                 Carrito
+                {itemCount > 0 && (
+                  <Badge className="absolute -top-2 -right-2 h-5 w-5 p-0 flex items-center justify-center bg-red-600 text-white text-xs">
+                    {itemCount}
+                  </Badge>
+                )}
               </Button>
             </div>
           </div>
@@ -232,13 +244,28 @@ export default function Index() {
                       <span className="text-lg font-bold text-stone-800">
                         €{artwork.price.toLocaleString()}
                       </span>
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        className="text-amber-600 hover:bg-amber-50"
-                      >
-                        Ver Detalles
-                      </Button>
+                      <div className="flex space-x-2">
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="text-amber-600 hover:bg-amber-50 p-2"
+                        >
+                          Ver
+                        </Button>
+                        <Button
+                          size="sm"
+                          className="bg-amber-600 hover:bg-amber-700 text-white p-2"
+                          onClick={() => addItem({
+                            id: artwork.id,
+                            title: artwork.title,
+                            price: artwork.price,
+                            image: artwork.image,
+                            category: artwork.category
+                          })}
+                        >
+                          <ShoppingCart className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -350,6 +377,9 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      {/* Cart Sidebar */}
+      <CartSidebar />
     </div>
   );
 }
