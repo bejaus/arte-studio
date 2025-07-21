@@ -157,9 +157,7 @@ export default function Index() {
                   className="border-stone-300 text-stone-700"
                   asChild
                 >
-                  <Link to="/sobre-mi">
-                    Conoce al Artista
-                  </Link>
+                  <Link to="/sobre-mi">Conoce al Artista</Link>
                 </Button>
               </div>
               <div className="flex items-center space-x-8 text-sm text-stone-600">
@@ -328,9 +326,7 @@ export default function Index() {
                 </div>
               </div>
               <Button className="bg-amber-600 hover:bg-amber-700" asChild>
-                <Link to="/sobre-mi">
-                  Conoce Mi Historia
-                </Link>
+                <Link to="/sobre-mi">Conoce Mi Historia</Link>
               </Button>
             </div>
             <div className="relative">

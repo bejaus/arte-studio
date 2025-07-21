@@ -24,37 +24,43 @@ const artisticJourney = [
   {
     year: "2009",
     title: "Primeros Pasos",
-    description: "Inicio de los estudios formales en Bellas Artes en la Universidad Complutense de Madrid.",
+    description:
+      "Inicio de los estudios formales en Bellas Artes en la Universidad Complutense de Madrid.",
     icon: <Brush className="h-5 w-5" />,
   },
   {
     year: "2013",
     title: "Graduación y Primera Exposición",
-    description: "Graduación con honores y primera exposición individual 'Nuevas Perspectivas' en Galería Arte Contemporáneo.",
+    description:
+      "Graduación con honores y primera exposición individual 'Nuevas Perspectivas' en Galería Arte Contemporáneo.",
     icon: <Award className="h-5 w-5" />,
   },
   {
     year: "2016",
     title: "Reconocimiento Internacional",
-    description: "Premio 'Joven Talento Europeo' en la Bienal de Arte Contemporáneo de Venecia.",
+    description:
+      "Premio 'Joven Talento Europeo' en la Bienal de Arte Contemporáneo de Venecia.",
     icon: <Star className="h-5 w-5" />,
   },
   {
     year: "2019",
     title: "Estilo Propio",
-    description: "Desarrollo de técnica mixta característica que combina óleo tradicional con elementos digitales.",
+    description:
+      "Desarrollo de técnica mixta característica que combina óleo tradicional con elementos digitales.",
     icon: <Palette className="h-5 w-5" />,
   },
   {
     year: "2021",
     title: "Estudio Propio",
-    description: "Apertura del estudio en el centro histórico de Madrid, donde actualmente creo todas mis obras.",
+    description:
+      "Apertura del estudio en el centro histórico de Madrid, donde actualmente creo todas mis obras.",
     icon: <MapPin className="h-5 w-5" />,
   },
   {
     year: "2024",
     title: "ArteStudio Online",
-    description: "Lanzamiento de la tienda online para acercar el arte a más personas en toda España.",
+    description:
+      "Lanzamiento de la tienda online para acercar el arte a más personas en toda España.",
     icon: <Users className="h-5 w-5" />,
   },
 ];
@@ -169,9 +175,9 @@ export default function SobreMi() {
                   <span className="block text-amber-600">Elena Martínez</span>
                 </h1>
                 <p className="text-xl text-stone-600 leading-relaxed">
-                  Una artista apasionada que encuentra belleza en la intersección
-                  entre lo tradicional y lo contemporáneo, creando obras que
-                  despiertan emociones y transforman espacios.
+                  Una artista apasionada que encuentra belleza en la
+                  intersección entre lo tradicional y lo contemporáneo, creando
+                  obras que despiertan emociones y transforman espacios.
                 </p>
               </div>
 
@@ -245,17 +251,16 @@ export default function SobreMi() {
                 </h3>
                 <p className="text-stone-600 leading-relaxed">
                   Mi relación con el arte comenzó en la infancia, cuando
-                  encontraba paz y expresión a través del dibujo. Lo que
-                  empezó como un pasatiempo se convirtió en una pasión que
-                  definiría mi vida. Cada trazo, cada color, era una forma
-                  de comunicar lo que las palabras no podían expresar.
+                  encontraba paz y expresión a través del dibujo. Lo que empezó
+                  como un pasatiempo se convirtió en una pasión que definiría mi
+                  vida. Cada trazo, cada color, era una forma de comunicar lo
+                  que las palabras no podían expresar.
                 </p>
                 <p className="text-stone-600 leading-relaxed">
                   Durante mis estudios en Bellas Artes, descubrí que mi
-                  verdadera vocación era crear puentes entre lo clásico y
-                  lo contemporáneo, desarrollando un estilo único que honra
-                  las técnicas tradicionales mientras abraza la innovación
-                  moderna.
+                  verdadera vocación era crear puentes entre lo clásico y lo
+                  contemporáneo, desarrollando un estilo único que honra las
+                  técnicas tradicionales mientras abraza la innovación moderna.
                 </p>
               </div>
               <div className="aspect-square bg-gradient-to-br from-stone-200 to-stone-300 rounded-2xl shadow-lg"></div>
@@ -268,18 +273,18 @@ export default function SobreMi() {
                   Filosofía y Técnica
                 </h3>
                 <p className="text-stone-600 leading-relaxed">
-                  Mi trabajo se centra en la exploración de emociones humanas
-                  a través del color y la forma. Utilizo técnicas mixtas que
+                  Mi trabajo se centra en la exploración de emociones humanas a
+                  través del color y la forma. Utilizo técnicas mixtas que
                   combinan óleos tradicionales con elementos contemporáneos,
                   creando texturas y profundidades que invitan a la
                   contemplación.
                 </p>
                 <p className="text-stone-600 leading-relaxed">
                   Cada obra es un diálogo entre el artista y el espectador,
-                  diseñada para evocar diferentes sensaciones según el momento
-                  y el estado de ánimo. Creo que el arte debe ser accesible
-                  y transformador, capaz de convertir cualquier espacio en
-                  un refugio de belleza y reflexión.
+                  diseñada para evocar diferentes sensaciones según el momento y
+                  el estado de ánimo. Creo que el arte debe ser accesible y
+                  transformador, capaz de convertir cualquier espacio en un
+                  refugio de belleza y reflexión.
                 </p>
               </div>
             </div>
