@@ -327,8 +327,10 @@ export default function Index() {
                   <div className="text-stone-400">Obras creadas</div>
                 </div>
               </div>
-              <Button className="bg-amber-600 hover:bg-amber-700">
-                Conoce Mi Historia
+              <Button className="bg-amber-600 hover:bg-amber-700" asChild>
+                <Link to="/sobre-mi">
+                  Conoce Mi Historia
+                </Link>
               </Button>
             </div>
             <div className="relative">
