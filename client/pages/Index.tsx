@@ -144,9 +144,12 @@ export default function Index() {
                 <Button
                   size="lg"
                   className="bg-amber-600 hover:bg-amber-700 text-white"
+                  asChild
                 >
-                  Explorar Galería
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link to="/galeria">
+                    Explorar Galería
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
                 <Button
                   variant="outline"
