@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ShoppingBag, Heart, Star, ArrowRight, ShoppingCart } from "lucide-react";
+import {
+  ShoppingBag,
+  Heart,
+  Star,
+  ArrowRight,
+  ShoppingCart,
+} from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import CartSidebar from "@/components/CartSidebar";
 
@@ -255,13 +261,15 @@ export default function Index() {
                         <Button
                           size="sm"
                           className="bg-amber-600 hover:bg-amber-700 text-white p-2"
-                          onClick={() => addItem({
-                            id: artwork.id,
-                            title: artwork.title,
-                            price: artwork.price,
-                            image: artwork.image,
-                            category: artwork.category
-                          })}
+                          onClick={() =>
+                            addItem({
+                              id: artwork.id,
+                              title: artwork.title,
+                              price: artwork.price,
+                              image: artwork.image,
+                              category: artwork.category,
+                            })
+                          }
                         >
                           <ShoppingCart className="h-4 w-4" />
                         </Button>

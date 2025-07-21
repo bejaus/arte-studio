@@ -1,28 +1,28 @@
-import { useCart } from '@/contexts/CartContext';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { 
-  X, 
-  Plus, 
-  Minus, 
-  Trash2, 
-  ShoppingBag, 
+import { useCart } from "@/contexts/CartContext";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  X,
+  Plus,
+  Minus,
+  Trash2,
+  ShoppingBag,
   CreditCard,
-  ArrowRight 
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
+  ArrowRight,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function CartSidebar() {
-  const { 
-    items, 
-    isOpen, 
-    total, 
-    itemCount, 
-    closeCart, 
-    updateQuantity, 
+  const {
+    items,
+    isOpen,
+    total,
+    itemCount,
+    closeCart,
+    updateQuantity,
     removeItem,
-    clearCart 
+    clearCart,
   } = useCart();
 
   if (!isOpen) return null;
@@ -30,11 +30,11 @@ export default function CartSidebar() {
   return (
     <>
       {/* Backdrop */}
-      <div 
+      <div
         className="fixed inset-0 bg-black/50 z-40 transition-opacity"
         onClick={closeCart}
       />
-      
+
       {/* Sidebar */}
       <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform transition-transform">
         <div className="flex flex-col h-full">
@@ -46,9 +46,7 @@ export default function CartSidebar() {
                 Carrito de Compras
               </h2>
               {itemCount > 0 && (
-                <Badge className="bg-amber-600 text-white">
-                  {itemCount}
-                </Badge>
+                <Badge className="bg-amber-600 text-white">{itemCount}</Badge>
               )}
             </div>
             <Button
@@ -73,9 +71,10 @@ export default function CartSidebar() {
                   Tu carrito está vacío
                 </h3>
                 <p className="text-stone-600 mb-6">
-                  Descubre nuestra colección de arte y añade las obras que más te gusten
+                  Descubre nuestra colección de arte y añade las obras que más
+                  te gusten
                 </p>
-                <Button 
+                <Button
                   onClick={closeCart}
                   className="bg-amber-600 hover:bg-amber-700"
                 >
@@ -91,7 +90,7 @@ export default function CartSidebar() {
                       <div className="flex space-x-4">
                         {/* Artwork Image */}
                         <div className="w-20 h-24 bg-gradient-to-br from-stone-200 to-stone-300 rounded-lg flex-shrink-0" />
-                        
+
                         {/* Item Details */}
                         <div className="flex-1 min-w-0">
                           <h4 className="font-medium text-stone-800 truncate">
@@ -103,13 +102,15 @@ export default function CartSidebar() {
                           <p className="text-lg font-semibold text-stone-800 mt-1">
                             €{item.price.toLocaleString()}
                           </p>
-                          
+
                           {/* Quantity Controls */}
                           <div className="flex items-center space-x-2 mt-3">
                             <Button
                               variant="outline"
                               size="sm"
-                              onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                              onClick={() =>
+                                updateQuantity(item.id, item.quantity - 1)
+                              }
                               className="h-8 w-8 p-0"
                             >
                               <Minus className="h-3 w-3" />
@@ -120,14 +121,16 @@ export default function CartSidebar() {
                             <Button
                               variant="outline"
                               size="sm"
-                              onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                              onClick={() =>
+                                updateQuantity(item.id, item.quantity + 1)
+                              }
                               className="h-8 w-8 p-0"
                             >
                               <Plus className="h-3 w-3" />
                             </Button>
                           </div>
                         </div>
-                        
+
                         {/* Remove Button */}
                         <Button
                           variant="ghost"
@@ -141,7 +144,7 @@ export default function CartSidebar() {
                     </CardContent>
                   </Card>
                 ))}
-                
+
                 {/* Clear Cart Button */}
                 {items.length > 0 && (
                   <Button
@@ -169,10 +172,10 @@ export default function CartSidebar() {
                     €{total.toLocaleString()}
                   </span>
                 </div>
-                
+
                 {/* Checkout Buttons */}
                 <div className="space-y-2">
-                  <Button 
+                  <Button
                     className="w-full bg-amber-600 hover:bg-amber-700 text-white"
                     size="lg"
                     asChild
@@ -182,8 +185,8 @@ export default function CartSidebar() {
                       Proceder al Pago
                     </Link>
                   </Button>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full border-stone-300 text-stone-700"
                     onClick={closeCart}
                   >
@@ -191,7 +194,7 @@ export default function CartSidebar() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
-                
+
                 {/* Security Note */}
                 <p className="text-xs text-stone-500 text-center">
                   Pago seguro • Envío gratuito en pedidos superiores a €500
